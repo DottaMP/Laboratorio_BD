@@ -37,7 +37,7 @@ select * from cliente; -- Consultando todos os campos da tabela cliente
 
 select nome, idade from cliente where sexo = 'F'; -- Consulte os campos nome e idade da tabela cliente onde o sexo=’F’
 
-select * from cliente where sexo = 'F' and idade >= 18 order by idade, nome; -- Consulte os campos da tabela de cliente quando o sexo=’F’ e a idade for >=18, ordenando pela idade e nome
+select nome, idade from cliente where sexo = 'F' and idade >= 18 order by idade, nome; -- Consulte os campos da tabela de cliente quando o sexo=’F’ e a idade for >=18, ordenando pela idade e nome
 
 create table vendedor(
     codigo bigint primary key auto_increment ,
