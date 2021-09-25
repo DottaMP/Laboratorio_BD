@@ -32,14 +32,15 @@ update cliente set nome = "Ana Julia" where codigo=2;
 
 create table pedido(
     codigo bigint primary key auto_increment,
-	codigoCliente bigint default null,
+	codigoCliente bigint default null, -- chave estrangeira (FK)
 	codigoVendedor bigint default null,
-	dataPedido  date default null, -- 'yyyy/mm/dd'
+	dataPedido  date default null, -- 'yyyy/mm/dd'  ou tipo timestamp
     codigoEntrega int (5),
     foreign key (codigoCliente) references cliente (codigo)
 ) default charset = utf8mb4;
 
 insert into pedido values 
+-- (default, 1, 2, curdate(), 20211), se utilizar o tipo dataPedido como timestamp
 (default, 1, 2, '2021/09/14', 20211),
 (default, default, 1, '2021/09/14', 20212),
 (default, default, 1, '2021/09/14', 20213),
@@ -60,18 +61,17 @@ select p.codigo, p.dataPedido, c.nome
 -- 3-Faça o LEFT JOIN  entre as tabelas PEDIDO e CLIENTE para mostrar os pedidos que não tem cadastro de cliente
 select p.codigo, c.nome
 	from pedido p left outer join cliente c
-		on c.codigo = p.codigoCliente
+		on c.codigo = p.codigoCliente where nome is null
 			order by p.codigo;
             
 -- 4-Faça o RIGHT JOIN entre as tabelas PEDIDO e CLIENTE para mostrar os clientes que não tem pedido
 select p.codigo, c.nome
 	from pedido p right outer join cliente c
-		on c.codigo = p.codigoCliente
+		on c.codigo = p.codigoCliente where p.codigo is null
 			order by c.nome;
             
 -- 5-Faça uma consulta do plano cartesiano das duas tabelas	
-select p.*, c.*
-	from pedido p, cliente c;
+select * from pedido, cliente;
     
 rollback; -- cancela comandos da transação
 commit; -- efetiva comandos da transação
