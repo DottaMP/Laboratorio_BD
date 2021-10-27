@@ -1,11 +1,11 @@
 -- 1-Criar todas as tabelas das entidades propostas no mer, adicionando as PKs e FKs e valores DEFAULT
 -- 2-Insira ao menos 5 registros para cada tabela criada, respeitando os relacionamentos
 
-create database ldbp1_atividade -- Criar a base de dados
+create database lbdp1_atividade -- Criar a base de dados
 default character set utf8mb4 -- Suportar caracter especial
 default collate utf8mb4_unicode_ci;
 
-use ldbp1_atividade;
+use lbdp1_atividade;
 
 start transaction;
 

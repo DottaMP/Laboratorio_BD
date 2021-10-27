@@ -1,8 +1,8 @@
-create database ldb06_join -- Criar a base de dados
+create database lbd06_join -- Criar a base de dados
 default character set utf8mb4 -- Suportar caracter especial
 default collate utf8mb4_unicode_ci;
 
-use ldb06_join;
+use lbd06_join;
 
 create table cliente(
     codigo bigint primary key auto_increment,

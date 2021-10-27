@@ -1,15 +1,11 @@
--- Nome: Mayara Pereira Dotta
--- Matrícula (RA): 2040482023049
--- Curso: ADS 204-20202 (Noite)
-
 -- 1-Crie as tabelas com os respectivos relacionamentos
 -- 2-insira ao menos 5 registros em todas as tabelas
 
-create database ldbrec1_atividade -- Criar a base de dados
+create database lbdrec1_atividade -- Criar a base de dados
 default character set utf8mb4 -- Suportar caracter especial
 default collate utf8mb4_unicode_ci;
 
-use ldbrec1_atividade;
+use lbdrec1_atividade;
 
 -- 3-Mostre a media de notas das avaliações agrupado por materia
 select  m.nome as NomeMateria, AVG(a.nota) as MediaAvaliações

@@ -4,10 +4,10 @@
 -- 4-Faça o RIGHT JOIN  entre as tabelas PEDIDO e CLIENTE para mostrar os clientes que não tem pedido;
 -- 5-Faça uma consulta do plano cartesiano das duas tabelas.
 
-create database ldb06_atividade -- Criar a base de dados
+create database lbd06_atividade -- Criar a base de dados
 default character set utf8mb4 -- Suportar caracter especial
 default collate utf8mb4_unicode_ci;
-use ldb06_atividade;
+use lbd06_atividade;
 
 start transaction;
 

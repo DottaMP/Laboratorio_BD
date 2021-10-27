@@ -5,11 +5,11 @@
 -- 4- crie uma view chamada vw_comissaoVendedor que calcule a comissao dos vendedores de acordo com 
 -- o valor total dos pedidos feitos, mostre o codigo do vendedor, nome vendedor, valorComissao.
 
-create database ldb08_atividade
+create database lbd08_atividade
 default character set utf8mb4 
 default collate utf8mb4_unicode_ci;
 
-use ldb08_atividade;
+use lbd08_atividade;
 
 create table produto(
     codigo bigint primary key auto_increment, -- o campo código por ser uma pk também é um index.

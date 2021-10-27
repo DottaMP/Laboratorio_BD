@@ -3,11 +3,11 @@
 -- 3-Faça o except das tabelas cliente e vendedor extraia os campos nome e email
 -- 4-Faça o intersect das tabelas cliente e vendedor extraia os campos nome e email
 
-create database ldb07_atividade -- Criar a base de dados
+create database lbd07_atividade -- Criar a base de dados
 default character set utf8mb4 -- Suportar caracter especial
 default collate utf8mb4_unicode_ci;
 
-use ldb07_atividade;
+use lbd07_atividade;
 
 create table cliente(
     codigo bigint primary key auto_increment,

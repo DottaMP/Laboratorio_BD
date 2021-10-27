@@ -1,8 +1,8 @@
-create database ldb08_views-- Criar a base de dados
+create database lbd08_views-- Criar a base de dados
 default character set utf8mb4 -- Suportar caracter especial
 default collate utf8mb4_unicode_ci;
 
-use ldb08_views;
+use lbd08_views;
 -- Utiliza-se apenas para consultas. Transforma um select em uma view.
 
 -- Exemplo:

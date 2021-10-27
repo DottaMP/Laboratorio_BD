@@ -5,11 +5,11 @@
 5- Agrupe os pedidos por vendendor, mostrando o numero de pedidos , total dos pedidos e media dos pedidos.
 6- Verifique no banco de dados o menor e o maior valor de pedido*/
 
-create database ldb05_selects -- Criar a base de dados
+create database lbd05_selects -- Criar a base de dados
 default character set utf8mb4 -- Suportar caracter especial
 default collate utf8mb4_unicode_ci;
 
-use ldb05_selects;
+use lbd05_selects;
 
 start transaction;
 

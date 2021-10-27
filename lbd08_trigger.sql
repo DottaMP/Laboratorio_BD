@@ -1,8 +1,8 @@
-create database ldb08_trigger-- Criar a base de dados
+create database lbd08_trigger-- Criar a base de dados
 default character set utf8mb4 -- Suportar caracter especial
 default collate utf8mb4_unicode_ci;
 
-use ldb08_trigger;
+use lbd08_trigger;
 -- Triggers
 -- É uma função associada a uma tabela e uma ação dessa tabela inserção, exclusão e atualização de dados (insert, delete e update).
 -- Principais motivos para uso:

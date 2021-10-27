@@ -1,8 +1,8 @@
-create database ldb08_index -- Criar a base de dados
+create database lbd08_index -- Criar a base de dados
 default character set utf8mb4 -- Suportar caracter especial
 default collate utf8mb4_unicode_ci;
 
-use ldb08_index;
+use lbd08_index;
 -- Index
 -- quando se cria uma pk em uma tabela, automaticamente será criado o index.
 -- pode-se também criar index adicionais:

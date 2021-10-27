@@ -7,11 +7,11 @@ no nome use o operador LIKE
 5-Liste todos os clientes com a idade entre 18 e 30 anos use o operador BETWEEN
 6-utilizando o campo DataPedido da tabela Pedido some 7 dias para simular a data de entrega do mesmo*/
 
-create database ldb09_atividade
+create database lbd09_atividade
 default character set utf8mb4 
 default collate utf8mb4_unicode_ci;
 
-use ldb09_atividade;
+use lbd09_atividade;
 
 create table cliente(
     codigoCliente bigint primary key auto_increment, -- o campo código por ser uma pk também é um index.

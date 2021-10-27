@@ -1,8 +1,8 @@
-create database ldb07_union_except_intersect -- Criar a base de dados
+create database lbd07_union_except_intersect -- Criar a base de dados
 default character set utf8mb4 -- Suportar caracter especial
 default collate utf8mb4_unicode_ci;
 
-use ldb07_union_except_intersect;
+use lbd07_union_except_intersect;
 
 create table cliente(
     codigo bigint primary key auto_increment,
