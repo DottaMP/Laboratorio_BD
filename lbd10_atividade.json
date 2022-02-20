@@ -1,0 +1,122 @@
+/* Instruções
+1-Quais as principais diferenças entre um banco de dados relacional e um banco de dados NOSQL?
+Bancos de dados relacionais, como os do MySQL armazenam dados usando um esquema explícito. 
+Um esquema descreve como gravar dados no banco de dados, particularmente descrevendo a estrutura, tipos 
+e estruturas de tabelas e registros.
+Um banco de dados relacional é um formato de banco de dados rigidamente estruturado, baseado em tabelas.
+Os bancos de dados NoSQL são documentados e permitem que você 
+armazene e recupere dados em formatos diferentes das tabelas. 
+O banco de dados NoSQL refere-se a um banco de dados não relacional. Ou seja, não usam tabelas com colunas e linhas
+para armazenar os dados. Ao invés disso,  implementam diferentes modelos.
+
+
+2-Quais as principais motivações para usar um banco de dados NOSQL?
+As aplicações modernas utilizam e geram tipos de dados complexos e em evolução. Os bancos de dados relacionais 
+não foram projetados para lidar com esse tipo de armazenamento e recuperação de dados. Os bancos de dados NoSQL 
+são mais flexíveis e escaláveis. O esquema dinâmico dos bancos de dados NoSQL aceita prontamente o desenvolvimento 
+ágil, o que requer iterações significativas e rápidas.
+
+3-O que é uma coleção e o que é um documento no conceito de banco de dados orientado a documentos?
+Bancos de dados orientados a documentos recebem dados em um formato semi-estruturado, normalmente um JSON. 
+Um JSON é chamado de documento. Um conjunto de documentos dá origem a uma coleção e um conjunto de coleções forma um banco de dados. */
+
+/* 4-Escreva um documento em JSON para representar um PEDIDO usado nas estruturas relacionais anteriores */
+{
+   "pedido":[
+      {
+         "numero":1111,
+         "data":"09/11/2021",
+         "total":600.00,
+         "cliente":{
+            "id":1,
+            "nome":"Mayara",
+            "email":"mayara@email.com.br",
+            "telefone":"2344-2344"
+         },
+         "vendedor":{
+            "id":1,
+            "nome":"joao",
+            "email":"joao@email.com.br"
+         },
+         "items":[
+            {
+               "id":1,
+               "valor":500.00
+            },
+            {
+               "id":2,
+               "valor":100.00
+            }
+         ]
+      },
+      {
+         "numero":2222,
+         "data":"09/11/2021",
+         "total":1100.00,
+         "cliente":{
+            "id":1,
+            "nome":"Mayara",
+            "email":"mayara@email.com.br",
+            "telefone":"2344-2344"
+         },
+         "vendedor":{
+            "id":1,
+            "nome":"joao",
+            "email":"joao@email.com.br"
+         },
+         "items":[
+            {
+               "id":1,
+               "valor":500.00
+            },
+            {
+               "id":3,
+               "valor":600.00
+            }
+         ]
+      }
+   ]
+}
+
+/* 5-Escreva um documento em JSON para representar um PRODUTO usado nas estruturas relacionais anteriores */
+{
+   "produto":[
+      {
+         "id":1,
+         "nome":"hd externo",
+         "valor":500.00,
+         "pedido":[
+            {
+               "numero":"1111",
+               "data":"09/11/2021"
+            },
+            {
+               "numero":"2222",
+               "data":"09/11/2021"
+            }
+         ]
+      },
+      {
+         "id":2,
+         "nome":"fone de ouvido",
+         "valor":100.00,
+         "pedido":[
+            {
+               "numero":"1111",
+               "data":"09/11/2021"
+            }
+         ]
+      },
+      {
+         "id":3,
+         "nome":"cadeira gamer",
+         "valor":600.00,
+         "pedido":[
+            {
+               "numero":"2222",
+               "data":"09/11/2021"
+            }
+         ]
+      }
+   ]
+}

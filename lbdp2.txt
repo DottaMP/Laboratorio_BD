@@ -1,0 +1,115 @@
+7 - Transforme o modelo RELACIONAL acima em um modelo DOCUMENTAL NOSQL 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+> use lbdp2
+switched to db lbdp2
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Paciente
+> db.paciente.find();
+> db.paciente.insert({"codigoPaciente":"1", "nomePaciente":"Alfredo Santos", "telefonePaciente":"99987-4256", "genero":"M", "idade":"42"});
+WriteResult({ "nInserted" : 1 })
+> db.paciente.insert({"codigoPaciente":"2", "nomePaciente":"Maria Aparecida", "telefonePaciente":"97766-6644", "genero":"F", "idade":"53"});
+WriteResult({ "nInserted" : 1 })
+> db.paciente.insert({"codigoPaciente":"3", "nomePaciente":"Julio Silva", "telefonePaciente":"99876-1122", "genero":"M", "idade":"36"});
+WriteResult({ "nInserted" : 1 })
+> db.paciente.insert({"codigoPaciente":"4", "nomePaciente":"Juliana Pereira", "genero":"F", "idade":"17"});
+WriteResult({ "nInserted" : 1 })
+> db.paciente.insert({"codigoPaciente":"5", "nomePaciente":"Juliana Rodrigues", "telefonePaciente":"2222-1111", "genero":"F", "idade":"27"});
+WriteResult({ "nInserted" : 1 })
+> db.paciente.insert({"codigoPaciente":"6", "nomePaciente":"Fernanda Silva", "telefonePaciente":"98765-4523", "genero":"F", "idade":"31"});
+WriteResult({ "nInserted" : 1 })
+> db.paciente.insert({"codigoPaciente":"7", "nomePaciente":"Fernando", "telefonePaciente":"99101-0000", "genero":"M", "idade":"29"});
+WriteResult({ "nInserted" : 1 })
+>
+
+-- Exibindo documentos
+> db.paciente.find();
+{ "_id" : ObjectId("619c30c70e1c126c36ca105e"), "codigoPaciente" : "1", "nomePaciente" : "Alfredo Santos", "telefonePaciente" : "99987-4256", "genero" : "M", "idade" : "42" }
+{ "_id" : ObjectId("619c30cd0e1c126c36ca105f"), "codigoPaciente" : "2", "nomePaciente" : "Maria Aparecida", "telefonePaciente" : "97766-6644", "genero" : "F", "idade" : "53" }
+{ "_id" : ObjectId("619c30d30e1c126c36ca1060"), "codigoPaciente" : "3", "nomePaciente" : "Julio Silva", "telefonePaciente" : "99876-1122", "genero" : "M", "idade" : "36" }
+{ "_id" : ObjectId("619c30d90e1c126c36ca1061"), "codigoPaciente" : "4", "nomePaciente" : "Juliana Pereira", "genero" : "F", "idade" : "17" }
+{ "_id" : ObjectId("619c30df0e1c126c36ca1062"), "codigoPaciente" : "5", "nomePaciente" : "Juliana Rodrigues", "telefonePaciente" : "2222-1111", "genero" : "F", "idade" : "27" }
+{ "_id" : ObjectId("619c30e60e1c126c36ca1063"), "codigoPaciente" : "6", "nomePaciente" : "Fernanda Silva", "telefonePaciente" : "98765-4523", "genero" : "F", "idade" : "31" }
+{ "_id" : ObjectId("619c30f10e1c126c36ca1064"), "codigoPaciente" : "7", "nomePaciente" : "Fernando", "telefonePaciente" : "99101-0000", "genero" : "M", "idade" : "29" }
+>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Medico
+> db.medico.find();
+> db.medico.insert({"codigoMedico":"1", "nomeMedico":"Jose Helbert", "telefoneMedico":"92288-1156", "crm": "1212", "especialidade":"Clínico Geral"});
+WriteResult({ "nInserted" : 1 })
+> db.medico.insert({"codigoMedico":"2", "nomeMedico":"Paola Fernandes", "telefoneMedico":"97000-0000", "crm": "1314", "especialidade":"Ginecologista"});
+WriteResult({ "nInserted" : 1 })
+> db.medico.insert({"codigoMedico":"3", "nomeMedico":"Julius Aparecido", "telefoneMedico":"79000-1234", "crm":"1516", "especialidade":"Oftalmologia"});
+WriteResult({ "nInserted" : 1 })
+> db.medico.insert({"codigoMedico":"4", "nomeMedico":"Marcia Pereira", "telefoneMedico":"67788-9900", "crm":"1919", "especialidade":"Pediatria"});
+WriteResult({ "nInserted" : 1 })
+> db.medico.insert({"codigoMedico":"5", "nomeMedico":"Juliane Rosa", "telefoneMedico":"91100-0011", "crm": "2123", "especialidade":"Ortopedia"});
+WriteResult({ "nInserted" : 1 })
+>
+
+-- Exibindo documentos
+> db.medico.find();
+{ "_id" : ObjectId("619c33c72d5a75f9ae9242e7"), "codigoMedico" : "1", "nomeMedico" : "Jose Helbert", "telefoneMedico" : "92288-1156", "crm" : "1212", "especialidade" : "Clínico Geral" }
+{ "_id" : ObjectId("619c33cc2d5a75f9ae9242e8"), "codigoMedico" : "2", "nomeMedico" : "Paola Fernandes", "telefoneMedico" : "97000-0000", "crm" : "1314", "especialidade" : "Ginecologista" }
+{ "_id" : ObjectId("619c33d22d5a75f9ae9242e9"), "codigoMedico" : "3", "nomeMedico" : "Julius Aparecido", "telefoneMedico" : "79000-1234", "crm" : "1516", "especialidade" : "Oftalmologia" }
+{ "_id" : ObjectId("619c33d72d5a75f9ae9242ea"), "codigoMedico" : "4", "nomeMedico" : "Marcia Pereira", "telefoneMedico" : "67788-9900", "crm" : "1919", "especialidade" : "Pediatria" }
+{ "_id" : ObjectId("619c33e02d5a75f9ae9242eb"), "codigoMedico" : "5", "nomeMedico" : "Juliane Rosa", "telefoneMedico" : "91100-0011", "crm" : "2123", "especialidade" : "Ortopedia" }
+>
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Consulta
+> db.consulta.find();
+> db.consulta.insert({"codigoConsulta":"1", "dataHoraConsulta":"2021-06-14 10:00:00", "historico":"Consulta de Rotina", "status":"1", "codigoMedico":"1","codigoPaciente":"3"});
+WriteResult({ "nInserted" : 1 })
+> db.consulta.insert({"codigoConsulta":"2", "dataHoraConsulta":"2021-04-25 09:50:00", "historico":"Retorno Exame", "status":"2", "codigoMedico":"1","codigoPaciente":"2"});
+WriteResult({ "nInserted" : 1 })
+> db.consulta.insert({"codigoConsulta":"3", "dataHoraConsulta":"2021-06-18 15:00:00", "historico":"Gravidez", "status":"1", "codigoMedico":"2","codigoPaciente":"5"});
+WriteResult({ "nInserted" : 1 })
+> db.consulta.insert({"codigoConsulta":"4", "dataHoraConsulta":"2021-05-12 11:20:00", "historico":"Gravidez", "status":"1", "codigoMedico":"2","codigoPaciente":"6"});
+WriteResult({ "nInserted" : 1 })
+> db.consulta.insert({"codigoConsulta":"5", "dataHoraConsulta":"2021-06-18 16:30:00", "historico":"Consulta de Rotina", "status":"2", "codigoMedico":"3","codigoPaciente":"7"});
+WriteResult({ "nInserted" : 1 })
+> db.consulta.insert({"codigoConsulta":"6", "dataHoraConsulta":"2021-05-21 10:50:00", "historico":"Hernia de Disco", "status":"1", "codigoMedico":"5","codigoPaciente":"1"});
+WriteResult({ "nInserted" : 1 })
+> db.consulta.insert({"codigoConsulta":"7", "dataHoraConsulta":"2021-07-02 18:00:00", "historico":"Consulta de Rotina", "status":"1", "codigoMedico":"4","codigoPaciente":"4"});
+WriteResult({ "nInserted" : 1 })
+
+-- Exibindo documentos
+> db.consulta.find();
+{ "_id" : ObjectId("619c35492d5a75f9ae9242ec"), "codigoConsulta" : "1", "dataHoraConsulta" : "2021-06-14 10:00:00", "historico" : "Consulta de Rotina", "status" : "1", "codigoMedico" : "1", "codigoPaciente" : "3" }
+{ "_id" : ObjectId("619c354f2d5a75f9ae9242ed"), "codigoConsulta" : "2", "dataHoraConsulta" : "2021-04-25 09:50:00", "historico" : "Retorno Exame", "status" : "2", "codigoMedico" : "1", "codigoPaciente" : "2" }
+{ "_id" : ObjectId("619c35552d5a75f9ae9242ee"), "codigoConsulta" : "3", "dataHoraConsulta" : "2021-06-18 15:00:00", "historico" : "Gravidez", "status" : "1", "codigoMedico" : "2", "codigoPaciente" : "5" }
+{ "_id" : ObjectId("619c355b2d5a75f9ae9242ef"), "codigoConsulta" : "4", "dataHoraConsulta" : "2021-05-12 11:20:00", "historico" : "Gravidez", "status" : "1", "codigoMedico" : "2", "codigoPaciente" : "6" }
+{ "_id" : ObjectId("619c35612d5a75f9ae9242f0"), "codigoConsulta" : "5", "dataHoraConsulta" : "2021-06-18 16:30:00", "historico" : "Consulta de Rotina", "status" : "2", "codigoMedico" : "3", "codigoPaciente" : "7" }
+{ "_id" : ObjectId("619c35662d5a75f9ae9242f1"), "codigoConsulta" : "6", "dataHoraConsulta" : "2021-05-21 10:50:00", "historico" : "Hernia de Disco", "status" : "1", "codigoMedico" : "5", "codigoPaciente" : "1" }
+{ "_id" : ObjectId("619c356c2d5a75f9ae9242f2"), "codigoConsulta" : "7", "dataHoraConsulta" : "2021-07-02 18:00:00", "historico" : "Consulta de Rotina", "status" : "1", "codigoMedico" : "4", "codigoPaciente" : "4" }
+>
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Receita
+> db.receita.find();
+> db.receita.insert({"codigoReceita":"1", "dataReceita":"2021-07-14", "descritivo":"1cx de Cefaliv - Tomar 1cp quando sentir dor - de 6 em 6h", "codigoConsulta":"1"});
+WriteResult({ "nInserted" : 1 })
+> db.receita.insert({"codigoReceita":"2", "dataReceita":"2021-05-25", "descritivo":"1cx de Omeprazol - Tomar 1cp de 12 em 12h", "codigoConsulta":"2"});
+WriteResult({ "nInserted" : 1 })
+> db.receita.insert({"codigoReceita":"3", "dataReceita":"2021-07-18", "descritivo":"Suplemento Vitâminico até o fim da gravidez - tomar 1cp junto ao café da manhã", "codigoConsulta":"3"});
+WriteResult({ "nInserted" : 1 })
+> db.receita.insert({"codigoReceita":"4", "dataReceita":"2021-06-12", "descritivo":"Paracetamol quando sentir dor - tomar de 4 em 4h", "codigoConsulta":"4"});
+WriteResult({ "nInserted" : 1 })
+> db.receita.insert({"codigoReceita":"5", "dataReceita":"2021-07-18", "descritivo":"Pingar colírio quando sentir os olhos secos e levar com shampoo neutro johnson", "codigoConsulta":"5"});
+WriteResult({ "nInserted" : 1 })
+> db.receita.insert({"codigoReceita":"6", "dataReceita":"2021-06-21", "descritivo":"2cx Prednisona - Tomar de 6 em 6h", "codigoConsulta":"6"});
+WriteResult({ "nInserted" : 1 })
+> db.receita.insert({"codigoReceita":"7", "dataReceita":"2021-08-02", "descritivo":"Tomar Suplementação de vitamína B12 por 3 meses", "codigoConsulta":"7"});
+WriteResult({ "nInserted" : 1 })
+
+-- Exibindo documentos
+> db.receita.find();
+{ "_id" : ObjectId("619c365b2d5a75f9ae9242f3"), "codigoReceita" : "1", "dataReceita" : "2021-07-14", "descritivo" : "1cx de Cefaliv - Tomar 1cp quando sentir dor - de 6 em 6h", "codigoConsulta" : "1" }
+{ "_id" : ObjectId("619c36672d5a75f9ae9242f4"), "codigoReceita" : "2", "dataReceita" : "2021-05-25", "descritivo" : "1cx de Omeprazol - Tomar 1cp de 12 em 12h", "codigoConsulta" : "2" }
+{ "_id" : ObjectId("619c366e2d5a75f9ae9242f5"), "codigoReceita" : "3", "dataReceita" : "2021-07-18", "descritivo" : "Suplemento Vitâminico até o fim da gravidez - tomar 1cp junto ao café da manhã", "codigoConsulta" : "3" }
+{ "_id" : ObjectId("619c36752d5a75f9ae9242f6"), "codigoReceita" : "4", "dataReceita" : "2021-06-12", "descritivo" : "Paracetamol quando sentir dor - tomar de 4 em 4h", "codigoConsulta" : "4" }
+{ "_id" : ObjectId("619c367b2d5a75f9ae9242f7"), "codigoReceita" : "5", "dataReceita" : "2021-07-18", "descritivo" : "Pingar colírio quando sentir os olhos secos e levar com shampoo neutro johnson", "codigoConsulta" : "5" }
+{ "_id" : ObjectId("619c36812d5a75f9ae9242f8"), "codigoReceita" : "6", "dataReceita" : "2021-06-21", "descritivo" : "2cx Prednisona - Tomar de 6 em 6h", "codigoConsulta" : "6" }
+{ "_id" : ObjectId("619c36b12d5a75f9ae9242f9"), "codigoReceita" : "7", "dataReceita" : "2021-08-02", "descritivo" : "Tomar Suplementação de vitamína B12 por 3 meses", "codigoConsulta" : "7" }
+>

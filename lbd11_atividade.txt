@@ -1,0 +1,76 @@
+Crie um  banco de dados no mongodb chamado loja virtual
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. crie 3 documentos para a coleção produtos:
+> use lojaVirtual
+switched to db lojaVirtual
+> db.produtos.find();
+> db.produtos.insert({"codigo":"1", "nome":"tv", "valor":1500});
+WriteResult({ "nInserted" : 1 })
+> db.produtos.insert({"codigo":"2", "nome":"celular", "valor":1200});
+WriteResult({ "nInserted" : 1 })
+> db.produtos.insert({"codigo":"3", "nome":"laptop", "valor":3200});
+WriteResult({ "nInserted" : 1 })
+> db.produtos.find();
+{ "_id" : ObjectId("619443099cfac9f9ccd148db"), "codigo" : "1", "nome" : "tv", "valor" : 1500 }
+{ "_id" : ObjectId("6194431a9cfac9f9ccd148dc"), "codigo" : "2", "nome" : "celular", "valor" : 1200 }
+{ "_id" : ObjectId("6194432a9cfac9f9ccd148dd"), "codigo" : "3", "nome" : "laptop", "valor" : 3200 }
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. crie 3 documentos para a coleção clientes:
+> db.clientes.insert({"codigo":"1", "nome":"maria", "telefone":"222-8888", "cidade":"guarulhos", "estado":"SP"});
+WriteResult({ "nInserted" : 1 })
+> db.clientes.insert({"codigo":"2", "nome":"joão", "telefone":"98888-5555", "cidade":"santa catarina", "estado":"SC"});
+WriteResult({ "nInserted" : 1 })
+> db.clientes.insert({"codigo":"3", "nome":"fernanda", "telefone":"96666-0000", "cidade":"sao paulo", "estado":"SP"});
+WriteResult({ "nInserted" : 1 })
+> db.clientes.find();
+{ "_id" : ObjectId("619445749cfac9f9ccd148e2"), "codigo" : "1", "nome" : "maria", "telefone" : "222-8888", "cidade" : "guarulhos", "estado" : "SP" }
+{ "_id" : ObjectId("6194459b9cfac9f9ccd148e3"), "codigo" : "2", "nome" : "joão", "telefone" : "98888-5555", "cidade" : "santa catarina", "estado" : "SC" }
+{ "_id" : ObjectId("619445bb9cfac9f9ccd148e4"), "codigo" : "3", "nome" : "fernanda", "telefone" : "96666-0000", "cidade" : "sao paulo", "estado" : "SP" }
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. crie 1 documento para a coleção pedidos:
+> db.pedidos.insert({"numero":"100", "data":"16/11/2021", "item":"2", "total":1200});
+WriteResult({ "nInserted" : 1 })
+> db.pedidos.find();
+{ "_id" : ObjectId("619446889cfac9f9ccd148e5"), "numero" : "100", "data" : "16/11/2021", "item" : "2", "total" : 1200 }
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+4. faça o update de ao menos um documento de cada coleção:
+> db.produtos.update({codigo: {$eq:"3"}}, {$set: {valor:3100}}, {multi:"true"});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+> db.clientes.update({codigo: {$eq:"2"}}, {$set: {cidade:"blumenau"}}, {multi:"true"});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+> db.pedidos.update({numero: {$eq:"100"}}, {$set: {data:"15/11/2021"}}, {multi:"true"});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+5. exiba os documentos das coleções:
+> db.produtos.find();
+{ "_id" : ObjectId("619444eb9cfac9f9ccd148df"), "codigo" : "1", "nome" : "tv", "valor" : 1500 }
+{ "_id" : ObjectId("619444f09cfac9f9ccd148e0"), "codigo" : "2", "nome" : "celular", "valor" : 1200 }
+{ "_id" : ObjectId("619444fa9cfac9f9ccd148e1"), "codigo" : "3", "nome" : "laptop", "valor" : 3100 }
+
+> db.clientes.find();
+{ "_id" : ObjectId("619445749cfac9f9ccd148e2"), "codigo" : "1", "nome" : "maria", "telefone" : "222-8888", "cidade" : "guarulhos", "estado" : "SP" }
+{ "_id" : ObjectId("6194459b9cfac9f9ccd148e3"), "codigo" : "2", "nome" : "joão", "telefone" : "98888-5555", "cidade" : "blumenau", "estado" : "SC" }
+{ "_id" : ObjectId("619445bb9cfac9f9ccd148e4"), "codigo" : "3", "nome" : "fernanda", "telefone" : "96666-0000", "cidade" : "sao paulo", "estado" : "SP" }
+
+> db.pedidos.find();
+{ "_id" : ObjectId("619446889cfac9f9ccd148e5"), "numero" : "100", "data" : "15/11/2021", "item" : "2", "total" : 1200 }
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+6. remova um documento da coleção produtos e clientes:
+> db.produtos.remove({"codigo":{$eq:"1"}})
+WriteResult({ "nRemoved" : 1 })
+> db.produtos.find();
+{ "_id" : ObjectId("619444f09cfac9f9ccd148e0"), "codigo" : "2", "nome" : "celular", "valor" : 1200 }
+{ "_id" : ObjectId("619444fa9cfac9f9ccd148e1"), "codigo" : "3", "nome" : "laptop", "valor" : 3100 }
+
+> db.clientes.remove({"codigo":{$eq:"2"}})
+WriteResult({ "nRemoved" : 1 })
+> db.clientes.find();
+{ "_id" : ObjectId("619445749cfac9f9ccd148e2"), "codigo" : "1", "nome" : "maria", "telefone" : "222-8888", "cidade" : "guarulhos", "estado" : "SP" }
+{ "_id" : ObjectId("619445bb9cfac9f9ccd148e4"), "codigo" : "3", "nome" : "fernanda", "telefone" : "96666-0000", "cidade" : "sao paulo", "estado" : "SP" }

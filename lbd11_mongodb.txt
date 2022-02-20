@@ -1,0 +1,54 @@
+ldb 11_mongodb
+
+show dbs -> mostra os bancos que tem
+use -> cria (se não existir) ou seta (se existir) um banco de dado
+use lbd -> usa o banco ldb
+db.usuario.find(); -> lista o conteúdo do banco (como se fosse um select)
+
+db.usuario.insert({"codigo":"123", "nome":"maria", "cidade":"são paulo", "estado":"sp"}); -> insere dados na collection usuario (se não existir a collection ele cria e insere)
+
+db.usuario.find({"estado":{$eq:"sp"}}); -> traz apenas o usuário do estado de sp.
+
+db.usuario.remove({"nome":"maria"}); -> Irá remover o usuário de nome maria.
+db.usuario.remove(); -> Irá remover tudo.
+
+db.usuario.update({codigo: {$eq:"123"}}, {$set: {telefone:"2344-2344"}}, {multi:"true"}); -> irá add um novo campo no usuário de código 123.
+                           (eq -> igual)
+
+db.usuario.find({"idade":{$gt:25, $lte:50}}); -> lista apenas as idades maiores que 25 e menor ou igual a 50.
+
+db.usuario.find({"nome":/^Maria/}); -> Consulta, como se fosse o like.
+
+db.usuario.find({"cidade:"campinas"}).sort(nome:1); -> ordenação por ordem ascendente
+
+db.usuario.find({"cidade:"campinas"}).sort(nome:-1); -> ordenação por ordem descendente
+
+Operadores de Comparação:
+$eq -> Retorno os objetos que tem valor igual ao especificado. 
+Sintaxe: {"age":{$eq:20}};
+$gt: Retorna os objetos que tem o valor maior ao especificado
+Sintaxe: {"age":{$gt:20}};
+$gte: Retorna os objetos que tem o valor maior ou igual ao especificado
+Sintaxe: {"age":{$gte:20}};
+$lt: Retorna os objetos que tem o valor menor que o especificado.
+Sintaxe: {"age":{$lt:20}};
+$lte: Retorna os objetos que tem o valor menor ou igual ao especificado.
+Sintaxe: {"age":{$lte:20}};
+$ne: Retorna os objetos com valor diferentes ao especificado.
+Sintaxe: {"age":{$ne:20}};
+$in: Retorna os objetos que tem o valor dentre os especificados no array.
+Sintaxe: {"age":{$in:[28,20]}};
+$nin: Retorna os objetos que não tem o valor dentre os especificados no array.
+Sintaxe: {"age":{$nin:[28,20]}};
+
+Operadores Lógicos:
+$or: Executa a comparação de duas expressões ou mais e retorna os objetos que cumpram ao menos uma dessas
+Sintaxe: {$or:[{"nome":{$eq:"expressao1"}},{"nome":{$eq:"expressao2"}}]}
+$and: Executa a comparação de duas expressões ou mais e retorno os objetos que cumpram com todas elas.
+Sintaxe: {$and:[{"nome":{$eq:"expressao1"}},{"age":{$eq:"expressao2"}}]};
+$not: Retorna os objetos que não compreendem as expressões.
+Sintaxe: {"age":{$not:{$gte:20}}};
+$nor: Retorna todos os objetos que não estão de acordo com as expressões do array.
+Sintaxe: {$nor:[{"age":20},{"age":28}]};
+$exist: Junta clausulas e retorna todos os documentos que não estão de acordo.
+Sintaxe: {cidade:{$exists:true}} -> irá trazer os falsos.

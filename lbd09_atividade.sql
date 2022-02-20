@@ -11,7 +11,7 @@ create database lbd09_atividade
 default character set utf8mb4 
 default collate utf8mb4_unicode_ci;
 
-use lbd09_atividade;
+use ldb09_atividade;
 
 create table cliente(
     codigoCliente bigint primary key auto_increment, -- o campo código por ser uma pk também é um index.
@@ -77,3 +77,4 @@ select DATE_ADD(curdate(), INTERVAL 7 DAY) as dataEntrega from pedido;
 
 -- Considerando a data do Pedido.
 select dataPedido as dataPedido, ADDDATE(dataPedido, INTERVAL 7 DAY) as dataEntrega from pedido;
+-- select dataPedido as dataPedido, date_add(dataPedido, INTERVAL 7 DAY) as dataEntrega from pedido;
